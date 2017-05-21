@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blizzardApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Some Blizzard App</title>
+</head>
+<body ng-controller="mainCtrl">
+<select class="input-medium" ng-model="sortDirection">
+          <option value="-">Descending</option>
+          <option value="+">Ascending</option>
+        </select>
+<input type="checkbox" ng-model="hideBosses"> Show Boss Description
+    <p>Boss Description</p><p ng-hide="hideBosses">{{bosses[3].description}}</p>
+    <input ng-model="bossMe.name" placeholder="I have killed...">
+    <h1 ng-repeat="boss in bosses | filter: bossMe | orderBy: sortDirection">{{boss.name}}{{boss.$$hashKey}}</h1>
+    
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controller.js"></script>
+		<script src="service.js"></script> 
+</body>
+</html>
